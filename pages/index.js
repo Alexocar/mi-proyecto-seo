@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -15,6 +16,13 @@ export default function Home() {
       </Head>
       <h1>Bienvenido a mi página optimizada</h1>
       <p>Aprende cómo mejorar el rendimiento y SEO en Next.js.</p>
+      <Image
+        src="/images/seo-image.png"
+        alt="Ejemplo de imagen optimizada con Next.js"
+        width={800}
+        height={450}
+        priority
+      />
     </>
   );
 }

@@ -1,5 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
+const InfoExtra = dynamic(() => import("../components/InfoExtra"), {
+  loading: () => <p>Cargando información adicional...</p>,
+});
 
 export default function Home() {
   return (
@@ -14,15 +22,19 @@ export default function Home() {
         <meta property="og:image" content="/images/seo-image.png" />
         <meta property="og:type" content="website" />
       </Head>
-      <h1>Bienvenido a mi página optimizada</h1>
-      <p>Aprende cómo mejorar el rendimiento y SEO en Next.js.</p>
-      <Image
-        src="/images/seo-image.png"
-        alt="Ejemplo de imagen optimizada con Next.js"
-        width={800}
-        height={450}
-        priority
-      />
+
+      <main className={inter.className} style={{ padding: "2rem" }}>
+        <h1>Bienvenido a mi página optimizada</h1>
+        <p>Aprende cómo mejorar el rendimiento y SEO en Next.js.</p>
+        <Image
+          src="/images/seo-image.png"
+          alt="Ejemplo de imagen optimizada con Next.js"
+          width={800}
+          height={450}
+          priority
+        />
+        <InfoExtra />
+      </main>
     </>
   );
 }
